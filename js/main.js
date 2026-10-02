@@ -153,4 +153,55 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  /* ---------- Doctor Modals ---------- */
+  function openModal(modalId) {
+    var modal = document.getElementById(modalId);
+    if (!modal) return;
+    modal.removeAttribute('hidden');
+    modal.classList.add('open');
+    document.body.classList.add('modal-open');
+    // Focus the close button for accessibility
+    var closeBtn = modal.querySelector('.doctor-modal-close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('hidden', '');
+    document.body.classList.remove('modal-open');
+  }
+
+  // Open via Read More buttons
+  document.querySelectorAll('.doctor-readmore').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var modalId = btn.getAttribute('data-modal');
+      openModal(modalId);
+    });
+  });
+
+  // Close via × button
+  document.querySelectorAll('.doctor-modal-close').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      closeModal(btn.closest('.doctor-modal'));
+    });
+  });
+
+  // Close via overlay click
+  document.querySelectorAll('.doctor-modal-overlay').forEach(function (overlay) {
+    overlay.addEventListener('click', function () {
+      closeModal(overlay.closest('.doctor-modal'));
+    });
+  });
+
+  // Close via Escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.doctor-modal.open').forEach(function (modal) {
+        closeModal(modal);
+      });
+    }
+  });
+
 });
+
