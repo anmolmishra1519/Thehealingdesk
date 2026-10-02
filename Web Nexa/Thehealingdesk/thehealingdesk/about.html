@@ -74,9 +74,49 @@
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="container reveal">
-      <span class="eyebrow">Meet Ananyaa</span>
-      <h1 class="display">Meet Ananyaa</h1>
-      <p class="role">Counselling Psychologist</p>
+      <span class="eyebrow">Our Team</span>
+      <h1 class="display">Meet Our Doctors</h1>
+      <p class="role">Psychologist &amp; Psychiatrist</p>
+    </div>
+  </section>
+
+  <!-- MEET OUR DOCTORS — Doctor Cards -->
+  <section class="section section-alt" id="meet-doctors">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Our Team</span>
+        <h2 class="section-title">Meet Our Doctors</h2>
+        <p class="section-lede">A team of dedicated mental health professionals committed to providing individualised, compassionate care.</p>
+      </div>
+      <div class="doctor-grid reveal-stagger">
+
+        <!-- ANANYAA CARD -->
+        <div class="doctor-card">
+          <div class="doctor-card-img">
+            <img src="images/ananyaa-portrait-wide.jpg" alt="Ananyaa Mishra, Counselling Psychologist" loading="lazy">
+          </div>
+          <div class="doctor-card-body">
+            <h3 class="doctor-name">Ananyaa Mishra</h3>
+            <p class="doctor-role">Counselling Psychologist</p>
+            <p class="doctor-snippet">Ananyaa works with individuals, psychology students and interns across Ayodhya, Noida, Delhi and online. Her approach is warm, collaborative and rooted in genuinely listening before offering direction.</p>
+            <button class="btn btn-outline btn-sm doctor-readmore" data-modal="modal-ananyaa" aria-haspopup="dialog">Read More</button>
+          </div>
+        </div>
+
+        <!-- DR. SUNNY CARD -->
+        <div class="doctor-card">
+          <div class="doctor-card-img">
+            <img src="images/dr-sunny-portrait.jpg" alt="Dr. Sunny Ambavat, Consultant Psychiatrist" loading="lazy">
+          </div>
+          <div class="doctor-card-body">
+            <h3 class="doctor-name">Dr. Sunny Ambavat</h3>
+            <p class="doctor-role">Consultant Psychiatrist / Neuropsychiatrist</p>
+            <p class="doctor-snippet">Dr. Sunny provides individualised psychiatric care for adults, older adults, adolescents and families in Gurugram and through online consultations. His approach is centred on understanding the person behind the symptoms.</p>
+            <button class="btn btn-outline btn-sm doctor-readmore" data-modal="modal-sunny" aria-haspopup="dialog">Read More</button>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -101,6 +141,109 @@
       <p class="role" style="margin-top:4px;">— Ananyaa Mishra</p>
     </div>
   </section>
+
+  <!-- ===== MODAL: Ananyaa ===== -->
+  <div class="doctor-modal" id="modal-ananyaa" role="dialog" aria-modal="true" aria-label="About Ananyaa Mishra" hidden>
+    <div class="doctor-modal-overlay"></div>
+    <div class="doctor-modal-box">
+      <button class="doctor-modal-close" aria-label="Close">&times;</button>
+      <div class="doctor-modal-inner">
+        <div class="doctor-modal-img">
+          <img src="images/ananyaa-portrait-wide.jpg" alt="Ananyaa Mishra">
+        </div>
+        <div class="doctor-modal-content">
+          <span class="eyebrow">Counselling Psychologist</span>
+          <h2 class="doctor-modal-name">Ananyaa Mishra</h2>
+          <p class="doctor-modal-sub">Counselling Psychologist</p>
+          <p>Ananyaa Mishra is a Counselling Psychologist working with individuals, psychology students and interns across Ayodhya, Noida, Delhi and online.</p>
+          <p>Her approach is warm and collaborative — rooted in genuinely listening before offering direction. Rather than following a fixed script, each session is shaped around the person in front of her: what they're carrying, what they need right now, and what would actually help.</p>
+          <p>Alongside individual therapy, Ananyaa works closely with psychology students and interns, helping translate classroom theory into grounded, real-world clinical understanding through case-based mentorship.</p>
+          <h4 class="modal-section-title">Who She Works With</h4>
+          <ul class="modal-list">
+            <li>Individuals navigating personal, emotional or life-related challenges</li>
+            <li>Psychology students seeking practical, grounded guidance</li>
+            <li>Psychology interns building clinical skills through case-based mentorship</li>
+            <li>Online clients across India</li>
+          </ul>
+          <div class="modal-cta">
+            <a href="contact.html" class="btn btn-primary">Book a Session</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODAL: Dr. Sunny ===== -->
+  <div class="doctor-modal" id="modal-sunny" role="dialog" aria-modal="true" aria-label="About Dr. Sunny Ambavat" hidden>
+    <div class="doctor-modal-overlay"></div>
+    <div class="doctor-modal-box">
+      <button class="doctor-modal-close" aria-label="Close">&times;</button>
+      <div class="doctor-modal-inner">
+        <div class="doctor-modal-img">
+          <img src="images/dr-sunny-portrait.jpg" alt="Dr. Sunny Ambavat">
+        </div>
+        <div class="doctor-modal-content">
+          <span class="eyebrow">Consultant Psychiatrist / Neuropsychiatrist</span>
+          <h2 class="doctor-modal-name">Dr. Sunny Ambavat</h2>
+          <p class="doctor-modal-sub">Consultant Psychiatrist / Neuropsychiatrist</p>
+          <p>Dr. Sunny Ambavat is a Consultant Psychiatrist providing individualised psychiatric care for adults, older adults, adolescents and families in Gurugram and through online consultations.</p>
+          <p>His approach is centred on understanding the person behind the symptoms, identifying the factors contributing to their difficulties, and developing a treatment plan collaboratively.</p>
+          <p>His areas of particular clinical interest include geriatric mental health, sexual health and substance-use disorders. Every consultation is individualised, collaborative and centred around your overall wellbeing.</p>
+
+          <h4 class="modal-section-title">Who He Works With</h4>
+          <p>Mental health concerns can affect people at different stages of life. Dr. Sunny works with individuals and families experiencing:</p>
+          <ul class="modal-list">
+            <li>Depression and other mood disorders</li>
+            <li>Anxiety and related difficulties</li>
+            <li>Bipolar disorder</li>
+            <li>Psychotic disorders</li>
+            <li>Dementia and cognitive difficulties</li>
+            <li>Substance-use disorders</li>
+            <li>Neurodevelopmental conditions</li>
+            <li>Behavioural and emotional difficulties</li>
+          </ul>
+          <p>He also has an interest in working with older adults, children and adolescents, people with chronic medical illnesses, and individuals experiencing mental-health difficulties during the perinatal period.</p>
+
+          <h4 class="modal-section-title">Services</h4>
+          <ul class="modal-list">
+            <li><strong>Depression</strong> — Persistent low mood, loss of interest, tiredness, changes in sleep or appetite, difficulty concentrating, or feelings of hopelessness.</li>
+            <li><strong>Anxiety &amp; Panic</strong> — Persistent worry, restlessness, muscle tension, palpitations, panic attacks or feeling unable to switch off your thoughts.</li>
+            <li><strong>Bipolar Disorder</strong> — Episodes of depression alternating with periods of unusually elevated mood, increased energy, reduced need for sleep, racing thoughts or impulsive behaviour.</li>
+            <li><strong>Psychotic Disorders</strong> — Hearing or seeing things others do not, strongly held unusual beliefs, disorganized speech, social withdrawal, or reduced motivation.</li>
+            <li><strong>Substance-Use Disorders</strong> — Craving, difficulty reducing or stopping substance use, increasing tolerance, withdrawal symptoms, or repeated relapse.</li>
+            <li><strong>ADHD &amp; Neurodevelopmental Concerns</strong> — Problems with sustained attention, organisation, impulsivity, excessive activity, forgetfulness, or academic difficulties.</li>
+            <li><strong>Memory &amp; Behavioural Changes</strong> — In older adults: increasing forgetfulness, confusion, impaired self-care, changes in personality or behaviour, agitation or mood symptoms.</li>
+            <li><strong>Sexual &amp; Relationship Health</strong> — Confidential assessment for erectile difficulties, premature ejaculation, low sexual desire, painful sexual activity, or medication-related sexual difficulties.</li>
+          </ul>
+
+          <h4 class="modal-section-title">Treatment Approach</h4>
+          <p>Psychiatric treatment is individualised according to the person's concerns, clinical needs and preferences. Depending on the situation, treatment may include:</p>
+          <ul class="modal-list">
+            <li>Psychiatric medication, when appropriate</li>
+            <li>Brief psychological interventions</li>
+            <li>Motivational enhancement for substance-use concerns</li>
+            <li>Psychoeducation and behavioural strategies</li>
+            <li>Sexual-health interventions</li>
+            <li>Support for older adults and their families</li>
+            <li>Coordination with psychological and other healthcare services</li>
+          </ul>
+
+          <h4 class="modal-section-title">What Happens During a Consultation</h4>
+          <ol class="modal-steps">
+            <li><strong>01 — Understanding your concerns</strong> — We begin by understanding what has been happening, how long you have been experiencing it, and how it is affecting your everyday life.</li>
+            <li><strong>02 — Clinical assessment</strong> — Relevant psychological, medical, medication, sleep, substance-use and social factors are explored as appropriate.</li>
+            <li><strong>03 — Making sense of the difficulties</strong> — The assessment helps develop an understanding of the difficulties and, where appropriate, a clinical diagnosis.</li>
+            <li><strong>04 — Planning treatment together</strong> — Available treatment options are discussed so that the approach can be tailored to your needs.</li>
+            <li><strong>05 — Follow-up</strong> — Treatment response, progress, concerns and any necessary changes are reviewed over time.</li>
+          </ol>
+
+          <div class="modal-cta">
+            <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- EXPERIENCE -->
   <section class="section">
