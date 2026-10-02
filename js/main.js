@@ -77,20 +77,12 @@ document.addEventListener('DOMContentLoaded', function () {
         accordion.querySelectorAll('.accordion-item.open').forEach(function (openItem) {
           if (openItem !== item) {
             openItem.classList.remove('open');
-            openItem.querySelector('.accordion-panel').style.maxHeight = null;
             openItem.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
           }
         });
       }
-      if (isOpen) {
-        item.classList.remove('open');
-        panel.style.maxHeight = null;
-        trigger.setAttribute('aria-expanded', 'false');
-      } else {
-        item.classList.add('open');
-        panel.style.maxHeight = panel.scrollHeight + 'px';
-        trigger.setAttribute('aria-expanded', 'true');
-      }
+      item.classList.toggle('open', !isOpen);
+      trigger.setAttribute('aria-expanded', String(!isOpen));
     });
   });
 
