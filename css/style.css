@@ -577,7 +577,7 @@ h3.card-title{ font-size:clamp(1.3rem,2vw,1.6rem); font-weight:500; }
    Locations
    ========================================================================== */
 .loc-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-@media(min-width:760px){ .loc-grid{ grid-template-columns:repeat(4,1fr); } }
+@media(min-width:760px){ .loc-grid{ grid-template-columns:repeat(5,1fr); } }
 .loc-card{
   background:var(--card);
   border:1px solid var(--line);
@@ -664,10 +664,12 @@ h3.card-title{ font-size:clamp(1.3rem,2vw,1.6rem); font-weight:500; }
 .accordion-trigger .plus::after{ width:1.5px; height:100%; left:50%; top:0; transform:translateX(-50%); }
 .accordion-item.open .accordion-trigger .plus::after{ transform:translateX(-50%) rotate(90deg); opacity:0; }
 .accordion-panel{
-  max-height:0;
-  overflow:hidden;
-  transition:max-height .5s var(--ease);
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows .45s var(--ease);
 }
+.accordion-item.open .accordion-panel{ grid-template-rows:1fr; }
+.accordion-panel-inner{ overflow:hidden; min-height:0; }
 .accordion-panel p{
   padding:0 4px 24px;
   color:var(--charcoal-70);
