@@ -112,21 +112,6 @@
             </div>
           </div>
 
-          <!-- Aadhaar upload -->
-          <div class="form-row">
-            <div class="field">
-              <label for="aadhaar">Aadhaar Card <span class="field-optional">(optional)</span></label>
-              <div class="file-upload-wrap">
-                <label for="aadhaar" class="file-upload-label">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                  <span id="file-label-text">Upload Aadhaar (JPG, PNG or PDF)</span>
-                </label>
-                <input type="file" id="aadhaar" name="aadhaar" accept="image/*,.pdf" style="display:none">
-              </div>
-              <p class="form-note" style="margin-top:6px;">Your Aadhaar is used only for identity verification. It will be shared securely via WhatsApp.</p>
-            </div>
-          </div>
-
           <!-- Error -->
           <p class="form-error" id="form-error" style="display:none; color:#B3453A; font-size:0.88rem; margin-top:4px; text-align:center;">
             Please fill in all required fields and select an interest before submitting.
@@ -173,23 +158,6 @@
       });
     });
 
-    // File label update
-    var aadhaarInput = document.getElementById('aadhaar');
-    var fileLabelText = document.getElementById('file-label-text');
-    if (aadhaarInput) {
-      aadhaarInput.addEventListener('change', function () {
-        fileLabelText.textContent = this.files[0] ? this.files[0].name : 'Upload Aadhaar (JPG, PNG or PDF)';
-      });
-    }
-    // Clicking the styled label triggers the hidden input
-    var fileLabel = document.querySelector('.file-upload-label');
-    if (fileLabel && aadhaarInput) {
-      fileLabel.addEventListener('click', function (e) {
-        e.preventDefault();
-        aadhaarInput.click();
-      });
-    }
-
     // Form submit → WhatsApp redirect
     document.getElementById('booking-form').addEventListener('submit', function (e) {
       e.preventDefault();
@@ -200,7 +168,6 @@
       var interest = document.querySelector('input[name="interest"]:checked');
       var location = locationSelect.value;
       var message  = document.getElementById('message').value.trim();
-      var aadhaar  = aadhaarInput && aadhaarInput.files[0] ? aadhaarInput.files[0].name : null;
       var errorBox = document.getElementById('form-error');
 
       // Validation
@@ -226,7 +193,6 @@
         '*Preferred Location:* ' + location,
       ];
       if (message) lines.push('*Description:* ' + message);
-      if (aadhaar) lines.push('*Aadhaar File:* ' + aadhaar + ' _(will be shared separately)_');
       lines.push('', 'Please confirm my appointment. Thank you!');
 
       var waText = encodeURIComponent(lines.join('\n'));

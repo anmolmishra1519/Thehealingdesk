@@ -1645,33 +1645,4 @@ body.modal-open {
   text-transform: none;
 }
 
-.file-upload-wrap {
-  margin-top: 4px;
-}
-
-.file-upload-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 11px 18px;
-  background: var(--cream);
-  border: 1.5px dashed var(--line);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  font-size: 0.9rem;
-  color: var(--charcoal-70);
-  transition: border-color 0.2s, background 0.2s;
-  width: 100%;
-  box-sizing: border-box;
-}
-.file-upload-label:hover {
-  border-color: var(--sage);
-  background: var(--sage-tint);
-  color: var(--charcoal);
-}
-.file-upload-label svg {
-  flex-shrink: 0;
-  color: var(--sage-deep);
-}
-
 
