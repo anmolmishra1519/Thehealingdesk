@@ -55,94 +55,187 @@
   <section class="section" style="padding-top:20px;">
     <div class="container contact-grid">
 
-      <!-- BOOKING FORM -->
+      <!-- BOOKING FORM — WhatsApp redirect -->
       <div class="form-card reveal">
-        <form id="booking-form" class="form-row" style="display:grid; gap:0;" action="https://formsubmit.co/hello@thehealingdesk.com" method="POST" data-formsubmit-email="hello@thehealingdesk.com">
-          <!-- FormSubmit.co config: sends this form straight to email, no backend needed.
-               IMPORTANT: replace the email below with the real inbox to receive enquiries at.
-               The first submission to a new email needs a one-time click-to-confirm from FormSubmit. -->
-          <input type="hidden" name="_subject" value="New session request — thehealingdesk.com">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-          <div class="form-row two">
-            <div class="field">
-              <label for="full-name">Full Name *</label>
-              <input type="text" id="full-name" name="full-name" required autocomplete="name">
-            </div>
-            <div class="field">
-              <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" required autocomplete="tel">
-            </div>
-          </div>
+        <form id="booking-form" novalidate>
 
+          <!-- Name -->
           <div class="form-row">
             <div class="field">
-              <label for="email">Email *</label>
-              <input type="email" id="email" name="email" required autocomplete="email">
+              <label for="full-name">Full Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="full-name" name="full-name" required autocomplete="name" placeholder="Your full name">
             </div>
           </div>
 
+          <!-- Phone + Email -->
           <div class="form-row two">
             <div class="field">
-              <label for="location">Preferred Location *</label>
-              <select id="location" name="location" required>
-                <option value="" disabled selected>Select a location</option>
-                <option value="Ayodhya">Ayodhya</option>
-                <option value="Noida">Noida</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Online">Online</option>
-              </select>
+              <label for="phone">Mobile Number <span aria-hidden="true">*</span></label>
+              <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="+91 XXXXX XXXXX">
             </div>
             <div class="field">
-              <label>I'm interested in *</label>
+              <label for="email">Email <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@email.com">
+            </div>
+          </div>
+
+          <!-- I'm interested in -->
+          <div class="form-row">
+            <div class="field">
+              <label>I'm interested in <span aria-hidden="true">*</span></label>
               <div class="radio-group" role="radiogroup" aria-label="I'm interested in">
-                <label class="radio-pill"><input type="radio" name="interest" value="Therapy" required> Therapy</label>
-                <label class="radio-pill"><input type="radio" name="interest" value="Student Mentorship"> Student Mentorship</label>
+                <label class="radio-pill" id="pill-consultation">
+                  <input type="radio" name="interest" value="Consultation" required> Consultation
+                </label>
+                <label class="radio-pill" id="pill-psychiatrist">
+                  <input type="radio" name="interest" value="Psychiatrist"> Psychiatrist
+                </label>
               </div>
             </div>
           </div>
 
-          <div class="form-row two">
-            <div class="field">
-              <label for="pref-date">Preferred Date</label>
-              <input type="date" id="pref-date" name="pref-date">
-            </div>
-            <div class="field">
-              <label for="pref-time">Preferred Time</label>
-              <input type="time" id="pref-time" name="pref-time">
-            </div>
-          </div>
-
+          <!-- Preferred Location — dynamically changes -->
           <div class="form-row">
             <div class="field">
-              <label for="message">Additional Message (optional)</label>
-              <textarea id="message" name="message" placeholder="Anything you'd like to share before your first conversation."></textarea>
+              <label for="location">Preferred Location <span aria-hidden="true">*</span></label>
+              <select id="location" name="location" required>
+                <option value="" disabled selected>Select interest above first</option>
+              </select>
             </div>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-block" id="booking-submit">Request a Session</button>
-          <p class="form-note">We'll never ask for detailed mental-health information in this form — that's a conversation for your session.</p>
-          <p class="form-error" id="form-error" style="display:none; color:#B3453A; font-size:0.88rem; margin-top:10px; text-align:center;">
-            Something went wrong sending your request. Please try again in a moment.
-          </p>
-        </form>
+          <!-- Description -->
+          <div class="form-row">
+            <div class="field">
+              <label for="message">Description <span class="field-optional">(optional)</span></label>
+              <textarea id="message" name="message" rows="4" placeholder="Briefly describe what brings you here — anything you'd like us to know before your first session."></textarea>
+            </div>
+          </div>
 
-        <div class="form-success" id="form-success">
-          <div class="icon" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg>
+          <!-- Aadhaar upload -->
+          <div class="form-row">
+            <div class="field">
+              <label for="aadhaar">Aadhaar Card <span class="field-optional">(optional)</span></label>
+              <div class="file-upload-wrap">
+                <label for="aadhaar" class="file-upload-label">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  <span id="file-label-text">Upload Aadhaar (JPG, PNG or PDF)</span>
+                </label>
+                <input type="file" id="aadhaar" name="aadhaar" accept="image/*,.pdf" style="display:none">
+              </div>
+              <p class="form-note" style="margin-top:6px;">Your Aadhaar is used only for identity verification. It will be shared securely via WhatsApp.</p>
+            </div>
           </div>
-          <h3>Thank you, <span id="success-name">there</span>.</h3>
-          <p>Your request has been received. We'll reach out shortly to confirm your session details.</p>
-          <a href="index.html" class="btn btn-terracotta">Back to Home</a>
-          <div style="margin-top:14px;">
-            <button type="button" id="reset-form" class="btn btn-outline btn-sm">Submit another enquiry</button>
-          </div>
-        </div>
+
+          <!-- Error -->
+          <p class="form-error" id="form-error" style="display:none; color:#B3453A; font-size:0.88rem; margin-top:4px; text-align:center;">
+            Please fill in all required fields and select an interest before submitting.
+          </p>
+
+          <!-- Submit -->
+          <button type="submit" class="btn btn-primary btn-block" id="booking-submit">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="vertical-align:middle;margin-right:8px;" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Request a Session via WhatsApp
+          </button>
+          <p class="form-note" style="margin-top:10px; text-align:center;">You'll be redirected to WhatsApp with your details pre-filled — just hit Send.</p>
+
+        </form>
       </div>
 
     </div>
   </section>
+
+  <script>
+  (function () {
+    var interestInputs = document.querySelectorAll('input[name="interest"]');
+    var locationSelect = document.getElementById('location');
+
+    var consultationLocations = ['Ayodhya', 'Noida', 'Delhi', 'Online'];
+    var psychiatristLocations  = ['Gurgaon', 'Online'];
+
+    function setLocations(locs) {
+      locationSelect.innerHTML = '<option value="" disabled selected>Select a location</option>';
+      locs.forEach(function (loc) {
+        var opt = document.createElement('option');
+        opt.value = loc;
+        opt.textContent = loc;
+        locationSelect.appendChild(opt);
+      });
+    }
+
+    interestInputs.forEach(function (input) {
+      input.addEventListener('change', function () {
+        if (this.value === 'Consultation') {
+          setLocations(consultationLocations);
+        } else if (this.value === 'Psychiatrist') {
+          setLocations(psychiatristLocations);
+        }
+      });
+    });
+
+    // File label update
+    var aadhaarInput = document.getElementById('aadhaar');
+    var fileLabelText = document.getElementById('file-label-text');
+    if (aadhaarInput) {
+      aadhaarInput.addEventListener('change', function () {
+        fileLabelText.textContent = this.files[0] ? this.files[0].name : 'Upload Aadhaar (JPG, PNG or PDF)';
+      });
+    }
+    // Clicking the styled label triggers the hidden input
+    var fileLabel = document.querySelector('.file-upload-label');
+    if (fileLabel && aadhaarInput) {
+      fileLabel.addEventListener('click', function (e) {
+        e.preventDefault();
+        aadhaarInput.click();
+      });
+    }
+
+    // Form submit → WhatsApp redirect
+    document.getElementById('booking-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var name     = document.getElementById('full-name').value.trim();
+      var phone    = document.getElementById('phone').value.trim();
+      var email    = document.getElementById('email').value.trim();
+      var interest = document.querySelector('input[name="interest"]:checked');
+      var location = locationSelect.value;
+      var message  = document.getElementById('message').value.trim();
+      var aadhaar  = aadhaarInput && aadhaarInput.files[0] ? aadhaarInput.files[0].name : null;
+      var errorBox = document.getElementById('form-error');
+
+      // Validation
+      if (!name || !phone || !email || !interest || !location) {
+        errorBox.style.display = 'block';
+        return;
+      }
+      errorBox.style.display = 'none';
+
+      var interestVal = interest.value;
+
+      // WhatsApp number
+      var waNumber = interestVal === 'Psychiatrist' ? '917011417726' : '918299364530';
+
+      // Build message
+      var lines = [
+        'Hello, I would like to request a session.',
+        '',
+        '*Name:* ' + name,
+        '*Mobile:* ' + phone,
+        '*Email:* ' + email,
+        '*Interested In:* ' + interestVal,
+        '*Preferred Location:* ' + location,
+      ];
+      if (message) lines.push('*Description:* ' + message);
+      if (aadhaar) lines.push('*Aadhaar File:* ' + aadhaar + ' _(will be shared separately)_');
+      lines.push('', 'Please confirm my appointment. Thank you!');
+
+      var waText = encodeURIComponent(lines.join('\n'));
+      var waURL  = 'https://wa.me/' + waNumber + '?text=' + waText;
+
+      window.open(waURL, '_blank');
+    });
+  })();
+  </script>
 
 </main>
 
