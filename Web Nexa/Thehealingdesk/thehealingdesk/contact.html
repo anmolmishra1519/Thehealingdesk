@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact &amp; Book a Session | Thehealingdesk</title>
+<meta name="description" content="Get in touch with Thehealingdesk to book a therapy session or enquire about psychology student mentorship. Online and offline options in Ayodhya, Noida &amp; Delhi.">
+<link rel="canonical" href="https://www.thehealingdesk.com/contact.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo"><img src="images/logo-icon.png" alt="Thehealingdesk logo" class="logo-icon">thehealingdesk<span class="leaf-dot" aria-hidden="true"></span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a href="contact.html" class="btn btn-primary nav-cta btn-sm">Book a Session</a>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary">Book a Session</a>
+  <p class="mm-meta">Ayodhya &middot; Noida &middot; Delhi &middot; Online</p>
+</div>
+
+<main id="main">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container reveal">
+      <span class="eyebrow">Contact</span>
+      <h1 class="display">Let's take the first step together.</h1>
+      <p class="section-lede">Whatever brings you here — therapy for yourself or mentorship as a student — reaching out is simple. Share a few details below and we'll get back to you to schedule a time that works.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:20px;">
+    <div class="container contact-grid">
+
+      <!-- BOOKING FORM -->
+      <div class="form-card reveal">
+        <form id="booking-form" class="form-row" style="display:grid; gap:0;" action="https://formsubmit.co/hello@thehealingdesk.com" method="POST" data-formsubmit-email="hello@thehealingdesk.com">
+          <!-- FormSubmit.co config: sends this form straight to email, no backend needed.
+               IMPORTANT: replace the email below with the real inbox to receive enquiries at.
+               The first submission to a new email needs a one-time click-to-confirm from FormSubmit. -->
+          <input type="hidden" name="_subject" value="New session request — thehealingdesk.com">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="form-row two">
+            <div class="field">
+              <label for="full-name">Full Name *</label>
+              <input type="text" id="full-name" name="full-name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+          </div>
+
+          <div class="form-row two">
+            <div class="field">
+              <label for="location">Preferred Location *</label>
+              <select id="location" name="location" required>
+                <option value="" disabled selected>Select a location</option>
+                <option value="Ayodhya">Ayodhya</option>
+                <option value="Noida">Noida</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Online">Online</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>I'm interested in *</label>
+              <div class="radio-group" role="radiogroup" aria-label="I'm interested in">
+                <label class="radio-pill"><input type="radio" name="interest" value="Therapy" required> Therapy</label>
+                <label class="radio-pill"><input type="radio" name="interest" value="Student Mentorship"> Student Mentorship</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row two">
+            <div class="field">
+              <label for="pref-date">Preferred Date</label>
+              <input type="date" id="pref-date" name="pref-date">
+            </div>
+            <div class="field">
+              <label for="pref-time">Preferred Time</label>
+              <input type="time" id="pref-time" name="pref-time">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="message">Additional Message (optional)</label>
+              <textarea id="message" name="message" placeholder="Anything you'd like to share before your first conversation."></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="booking-submit">Request a Session</button>
+          <p class="form-note">We'll never ask for detailed mental-health information in this form — that's a conversation for your session.</p>
+          <p class="form-error" id="form-error" style="display:none; color:#B3453A; font-size:0.88rem; margin-top:10px; text-align:center;">
+            Something went wrong sending your request. Please try again in a moment.
+          </p>
+        </form>
+
+        <div class="form-success" id="form-success">
+          <div class="icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <h3>Thank you, <span id="success-name">there</span>.</h3>
+          <p>Your request has been received. We'll reach out shortly to confirm your session details.</p>
+          <a href="index.html" class="btn btn-terracotta">Back to Home</a>
+          <div style="margin-top:14px;">
+            <button type="button" id="reset-form" class="btn btn-outline btn-sm">Submit another enquiry</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><img src="images/logo-icon.png" alt="Thehealingdesk logo" class="logo-icon">thehealingdesk<span class="leaf-dot" aria-hidden="true"></span></a>
+      <p class="footer-tagline">Mental health support that is accessible, approachable &amp; affordable.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; 2026 Thehealingdesk. All Rights Reserved.</span>
+    <div class="legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Disclaimer</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
