@@ -1843,4 +1843,192 @@ body.modal-open {
   text-transform: none;
 }
 
+/* ==========================================================================
+   SERVICES PAGE — Section Divider (psychologist ↔ psychiatrist)
+   ========================================================================== */
+.services-section-divider {
+  padding: 0;
+}
+.services-divider-line {
+  height: 1px;
+  background: var(--line);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   PSYCHIATRIC PRICING GRID
+   Balanced structured layout:
+   - 2 columns on tablet & desktop (Initial vs Follow-up side-by-side, Extended card spanning or centered)
+   - 1 column on mobile
+   ========================================================================== */
+.psych-pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+@media (min-width: 680px) {
+  .psych-pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .psych-pricing-grid .psych-pricing-card--extended {
+    grid-column: 1 / -1;
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+.psych-pricing-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px 26px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease);
+}
+.psych-pricing-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--terracotta);
+  box-shadow: 0 16px 40px -18px rgba(198,135,92,0.3);
+}
+
+.psych-pricing-card--extended {
+  border-color: var(--terracotta);
+  background: linear-gradient(160deg, var(--card) 0%, var(--terracotta-tint) 100%);
+}
+.psych-pricing-card--extended:hover {
+  border-color: var(--terracotta);
+  box-shadow: 0 16px 40px -18px rgba(198,135,92,0.45);
+}
+
+/* ==========================================================================
+   PSYCHIATRIC MODE BADGES — Online / In Person
+   ========================================================================== */
+.psych-mode-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+.psych-mode-badge--online {
+  background: var(--sage-tint);
+  color: var(--sage-deep);
+}
+.psych-mode-badge--inperson {
+  background: var(--terracotta-tint);
+  color: var(--terracotta);
+}
+
+/* ==========================================================================
+   PSYCHIATRIC CONSULTATION DISCLAIMER
+   ========================================================================== */
+.psych-disclaimer {
+  max-width: 780px;
+  margin: 36px auto 0;
+  padding: 20px 28px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  color: var(--charcoal-45);
+  line-height: 1.7;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .psych-disclaimer {
+    padding: 16px 18px;
+    font-size: 0.85rem;
+    margin-top: 24px;
+  }
+}
+
+/* ==========================================================================
+   PSYCHIATRIC AREAS OF CARE — responsive grid (13 items)
+   ========================================================================== */
+.areas-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  max-width: 1100px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+@media (min-width: 560px) {
+  .areas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 860px) {
+  .areas-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.area-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 18px 20px;
+  font-size: 0.95rem;
+  color: var(--charcoal-70);
+  line-height: 1.5;
+  font-weight: 500;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+.area-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--sage);
+}
+
+.area-icon {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--sage-tint);
+  color: var(--sage-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+@media (max-width: 767px) {
+  .area-item {
+    padding: 14px 16px;
+    font-size: 0.92rem;
+  }
+  .area-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .psych-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 380px) {
+  .area-item {
+    padding: 12px 14px;
+  }
+}
+
 
